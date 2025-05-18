@@ -1,0 +1,4 @@
+rich
+PyQt6
+pandas
+plotly
