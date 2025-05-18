@@ -94,7 +94,7 @@ def render_map(gpxs : list[str]) -> Figure:
             tmp_df["hike"] = n # tag each node to keep knowledge of which hike it came from.
             df = pd.concat([df, tmp_df], axis = 0)
 
-    fig = px.line_map(df, lat="lat", lon="lon", height=800, color = "hike", color_discrete_sequence = px.colors.qualitative.Dark24, labels = "hike") # generate the lines on a open street map widget
+    fig = px.line_map(df, lat="lat", lon="lon", color = "hike", color_discrete_sequence = px.colors.qualitative.Dark24, labels = "hike") # generate the lines on a open street map widget
     fig.update_traces(line={'width': 4}) # set all the line widths
-    fig.update_layout(map_style="basic", map_center_lon = 0.5 * (max(df.lon) + min(df.lon)), map_center_lat = 0.5 * (max(df.lat) + min(df.lat)), map_zoom = 10, margin={"r":0,"t":0,"l":0,"b":0}) # set the style of the map, and the origin point + zoom
+    fig.update_layout(map_style="open-street-map", map_center_lon = 0.5 * (max(df.lon) + min(df.lon)), map_center_lat = 0.5 * (max(df.lat) + min(df.lat)), map_zoom = 10, margin={"r":0,"t":0,"l":0,"b":0}) # set the style of the map, and the origin point + zoom
     return fig
