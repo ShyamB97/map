@@ -8,7 +8,7 @@ python map.py $1 --export_html
 mv map.html index.html
 # 2. in a temporary folder, clone the deploy branch
 cd /tmp
-git clone -b deploy https://github.com/ShyamB97/map.git
+git clone -b deploy git@github.com:ShyamB97/map.git
 cd map
 # 3. copy the new index.html into depoly
 cp $SCRIPT_DIR/index.html .
